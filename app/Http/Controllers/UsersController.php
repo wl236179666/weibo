@@ -74,4 +74,11 @@ class UsersController extends Controller
 
         return redirect() -> route('users.show',$user -> id);
     }
+
+    public function index()
+    {
+//        $users = User::all();
+        $users = User::paginate(10);
+        return view('users.index',compact('users'));
+    }
 }
